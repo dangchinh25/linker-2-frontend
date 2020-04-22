@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 const PeopleContainer = styled.div`
 	box-sizing: border-box;
@@ -13,6 +14,7 @@ const PeopleContainer = styled.div`
 	margin-top: 20px;
 	width: 22%;
 	background-color: #f7f6f6;
+	cursor: pointer;
 `
 const StyledInfoRow = styled.div`
 	width: 100%;
@@ -34,6 +36,15 @@ const StyledInfoRow = styled.div`
 		background-color: #f7f6f6;
 		font-size: ${(props) => (props.name ? "18px" : null)};
 	}
+
+	a {
+		text-decoration: none;
+		color: #c6c4c4;
+
+		&:hover {
+			color: #f04c63;
+		}
+	}
 `
 
 function People({ id, name, age, gender }) {
@@ -43,7 +54,9 @@ function People({ id, name, age, gender }) {
 				<img src="logo192.png" />
 			</StyledInfoRow>
 			<StyledInfoRow name>
-				<span>{name}</span>
+				<Link to={`/user/${id}`}>
+					<span>{name}</span>
+				</Link>
 			</StyledInfoRow>
 			<StyledInfoRow>
 				<span>{gender}</span>
