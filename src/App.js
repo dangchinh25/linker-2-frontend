@@ -10,6 +10,7 @@ import { AuthContext } from "./authContext/AuthContext"
 import { useAuth } from "./CustomHooks/authHook"
 import WelcomePage from "./pages/WelcomePage/WelcomePage"
 import ForumPage from "./pages/ForumPage/ForumPage"
+import DiscoverPage from "./pages/DiscoverPage/DiscoverPage"
 
 function App() {
 	const { token, login, logout, userId } = useAuth()
@@ -20,6 +21,7 @@ function App() {
 		routes = (
 			<Switch>
 				<Route path="/forum" component={ForumPage} />
+				<Route path="/discover" component={DiscoverPage} />
 				<Redirect to="/forum" />
 			</Switch>
 		)

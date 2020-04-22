@@ -12,6 +12,7 @@ import {
 	faCog,
 	faSortDown,
 } from "@fortawesome/free-solid-svg-icons"
+import { NavLink, Link } from "react-router-dom"
 
 const HeaderContainer = styled.div`
 	display: flex;
@@ -116,6 +117,16 @@ const ProfileSelect = styled.div`
 	}
 `
 
+const StyledNavLink = styled(NavLink)`
+	text-decoration: none;
+
+	&.active {
+		svg {
+			color: #f04c63;
+		}
+	}
+`
+
 function HeaderNav() {
 	const [isProfileOpen, setIsProfileOpen] = useState(false)
 	const auth = useContext(AuthContext)
@@ -124,22 +135,33 @@ function HeaderNav() {
 		<HeaderContainer>
 			<LogoContainer>Logo</LogoContainer>
 
-			<HeaderOption>
-				<FontAwesomeIcon icon={faUsers} />
-				Forum
-			</HeaderOption>
-			<HeaderOption>
-				<FontAwesomeIcon icon={faCompass} />
-				Discover
-			</HeaderOption>
-			<HeaderOption>
-				<FontAwesomeIcon icon={faEnvelope} />
-				Messages
-			</HeaderOption>
-			<HeaderOption>
-				<FontAwesomeIcon icon={faBell} />
-				Notification
-			</HeaderOption>
+			<StyledNavLink to="/forum">
+				<HeaderOption>
+					<FontAwesomeIcon icon={faUsers} />
+					Forum
+				</HeaderOption>
+			</StyledNavLink>
+
+			<StyledNavLink to="/discover">
+				<HeaderOption>
+					<FontAwesomeIcon icon={faCompass} />
+					Discover
+				</HeaderOption>
+			</StyledNavLink>
+
+			<StyledNavLink to="/">
+				<HeaderOption>
+					<FontAwesomeIcon icon={faEnvelope} />
+					Messages
+				</HeaderOption>
+			</StyledNavLink>
+
+			<StyledNavLink to="/">
+				<HeaderOption>
+					<FontAwesomeIcon icon={faBell} />
+					Notification
+				</HeaderOption>
+			</StyledNavLink>
 			<HeaderOption
 				onClick={() => setIsProfileOpen(!isProfileOpen)}
 				row
