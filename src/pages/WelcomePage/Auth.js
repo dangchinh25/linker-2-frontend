@@ -10,31 +10,41 @@ const AuthContainer = styled.div`
 	align-items: center;
 	width: 50%;
 	height: 100%;
-	background-color: #f8f8ff;
+	background-color: #f7f6f6;
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
 `
 const Input = styled.input`
 	padding: 10px 10px;
 	padding-left: 20px;
 	border-radius: 30px;
-	border: 1px solid black;
+	border: 1px solid #0a4f70;
 	font-size: 15px;
 	line-height: 25px;
-	font-family: "Baloo Thambi 2";
+	font-weight: 600;
 	outline: none;
 	margin-top: 15px;
+	background: #f7f6f6;
+	color: #0a4f70;
 	/* margin-right: 10px; */
 `
 const Button = styled.button`
 	padding: 8px 20px;
-	border: 1px solid black;
+	border: 1px solid #0a4f70;
+	color: #0a4f70;
 	border-radius: 15px;
 	cursor: pointer;
 	transition: 0.2s all ease;
 	outline: none;
-	margin-top: 15px;
+	margin-top: 10px;
+	background: #f7f6f6;
+	text-transform: uppercase;
+	font-weight: 600;
 
 	&:hover {
 		transform: scale(1.1);
+		background: #51c5dd;
+		color: #f7f6f6;
 	}
 `
 const SwitchMode = styled.button`
@@ -44,9 +54,17 @@ const SwitchMode = styled.button`
 	font-size: 15px;
 	cursor: pointer;
 	color: blue;
+	background: #f7f6f6;
+	color: #0a4f70;
+	text-transform: uppercase;
+	font-weight: 700;
 `
-const ErrorText = styled.p`
+const ErrorText = styled.span`
 	margin: 0;
+	margin-top: 10px;
+	font-size: 14px;
+	background: #f7f6f6;
+	color: #0a4f70;
 `
 
 function Auth() {
@@ -66,6 +84,7 @@ function Auth() {
 		email: true,
 		password: true,
 	})
+	const [isError, setIsError] = useState(false)
 
 	const onChangeAuthHandler = (event) => {
 		isLoginMode
@@ -89,8 +108,11 @@ function Auth() {
 					loginData
 				)
 				const data = responseData.data
+				setIsError(false)
 				auth.login(data.userId, data.token)
-			} catch (err) {}
+			} catch (err) {
+				setIsError(true)
+			}
 		} else {
 			try {
 				const responseData = await axios.post(
@@ -98,8 +120,11 @@ function Auth() {
 					signupData
 				)
 				const data = responseData.data
+				setIsError(false)
 				auth.login(data.userId, data.token)
-			} catch (err) {}
+			} catch (err) {
+				setIsError(true)
+			}
 		}
 	}
 
@@ -126,7 +151,16 @@ function Auth() {
  */
 	const LoginComponent = (
 		<AuthContainer>
-			<h2>Login</h2>
+			<h2
+				style={{
+					background: "#f7f6f6",
+					textTransform: "uppercase",
+					margin: 0,
+					color: "#0a4f70",
+				}}
+			>
+				Login
+			</h2>
 			<Input
 				type="email"
 				placeholder="email"
@@ -147,8 +181,20 @@ function Auth() {
 			{!isInputValid.password && (
 				<ErrorText>PLease provid valid password</ErrorText>
 			)}
+			{isError && (
+				<ErrorText>
+					Can't log you in, please check your email/password
+				</ErrorText>
+			)}
 			<Button onClick={authSubmitHandler}>Login</Button>
-			<p>
+			<p
+				style={{
+					background: "#f7f6f6",
+					textTransform: "uppercase",
+					fontSize: "14px",
+					color: "#0a4f70",
+				}}
+			>
 				Don't have an account?,
 				<SwitchMode
 					onClick={() => {
@@ -158,6 +204,7 @@ function Auth() {
 							email: true,
 							password: true,
 						})
+						setIsError(false)
 					}}
 				>
 					Sign Up
@@ -168,7 +215,16 @@ function Auth() {
 
 	const SignUpComponent = (
 		<AuthContainer>
-			<h2>SignUp</h2>
+			<h2
+				style={{
+					background: "#f7f6f6",
+					textTransform: "uppercase",
+					margin: 0,
+					color: "#0a4f70",
+				}}
+			>
+				Sign Up
+			</h2>
 			<Input
 				type="text"
 				placeholder="Your full name"
@@ -199,8 +255,20 @@ function Auth() {
 			{!isInputValid.password && (
 				<ErrorText>PLease provid valid password</ErrorText>
 			)}
+			{isError && (
+				<ErrorText>
+					Can't sign you up, please check your field
+				</ErrorText>
+			)}
 			<Button onClick={authSubmitHandler}>Sign Up</Button>
-			<p>
+			<p
+				style={{
+					background: "#f7f6f6",
+					textTransform: "uppercase",
+					fontSize: "14px",
+					color: "#0a4f70",
+				}}
+			>
 				Already had an account?,
 				<SwitchMode
 					onClick={() => {
@@ -210,6 +278,7 @@ function Auth() {
 							email: true,
 							password: true,
 						})
+						setIsError(false)
 					}}
 				>
 					Login

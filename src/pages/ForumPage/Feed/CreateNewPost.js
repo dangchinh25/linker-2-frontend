@@ -15,11 +15,13 @@ const CreatePost = styled.div`
 	padding: 12px 18px;
 	border-radius: 15px;
 	position: relative;
+	background: #f7f6f6;
 
 	span {
 		font-size: 14px;
 		line-height: 1.5rem;
 		color: #7e7980;
+		background: #f7f6f6;
 	}
 
 	.input-box {
@@ -30,11 +32,13 @@ const CreatePost = styled.div`
 		border-top: 1px solid #8f9faa;
 		margin-top: 10px;
 		padding-top: 10px;
+		background: #f7f6f6;
 
 		.create-post-icon {
 			margin-top: 10px;
 			font-size: 1.4rem;
 			color: #8f9faa;
+			background: #f7f6f6;
 		}
 	}
 `
@@ -43,6 +47,7 @@ const StyledForm = styled.form`
 	min-height: ${(props) => (props.expand ? "200px" : null)};
 	max-height: 500px;
 	margin-left: 15px;
+	background: #f7f6f6;
 
 	input {
 		width: 90%;
@@ -53,6 +58,7 @@ const StyledForm = styled.form`
 		font-weight: 600;
 		color: #7e7980;
 		user-select: none;
+		background: #f7f6f6;
 	}
 
 	svg {
@@ -61,6 +67,7 @@ const StyledForm = styled.form`
 		bottom: 20px;
 		right: 20px;
 		color: #8f9faa;
+		background: #f7f6f6;
 	}
 
 	.submit-post {
@@ -74,6 +81,7 @@ const StyledForm = styled.form`
 		cursor: pointer;
 		transition: 0.1s all ease;
 		color: #7e7980;
+		background: #f7f6f6;
 
 		&:hover {
 			transform: scale(1.1);
@@ -90,27 +98,89 @@ const StyledEditable = styled(Editable)`
 	overflow-y: auto;
 	height: auto;
 	max-height: 400px;
+	background-color: #f7f6f6;
+	background: none;
 	margin-bottom: ${(props) => (props.expand ? "40px" : null)};
+
+	div {
+		background-color: #f7f6f6;
+	}
 `
 
 const StyledSelect = styled(Select)`
 	width: 80%;
 	margin-bottom: 5px;
 	color: #7e7980;
+	background: #f7f6f6;
 
 	.select__control--menu-is-open {
 		border-color: #7e7980;
+		background: #f7f6f6;
+	}
+
+	.select__multi-value {
+		background: none;
+	}
+	.select__multi-value__label {
+		background: #c6c4c4;
+		border-radius: 30px;
+		padding: 3px 8px;
+	}
+	.select__multi-value__remove {
+		background: #f7f6f6;
+	}
+
+	.select__value-container {
+		background: #f7f6f6;
+	}
+
+	.select__input {
+		background: #f7f6f6;
+	}
+
+	.css-b8ldur-Input {
+		background: #f7f6f6;
+	}
+
+	.select__indicators {
+		background: #f7f6f6;
+	}
+
+	.select__indicator {
+		background: #f7f6f6;
+	}
+
+	.select__placeholder {
+		background-color: #f7f6f6;
 	}
 
 	.css-1pahdxg-control {
 		box-shadow: 0 0 1px #7e7980;
 		border-color: #7e7980;
+		background: #f7f6f6;
 	}
 
 	.css-1pahdxg-control:hover {
 		border-color: #7e7980;
+		background: #f7f6f6;
 	}
 `
+
+const customSelectStyle = {
+	control: (base, state) => ({
+		...base,
+		background: "#f7f6f6",
+		backgroundColor: "#f7f6f6",
+	}),
+	menu: (base) => ({
+		...base,
+		background: "#f7f6f6",
+	}),
+	menuList: (base) => ({
+		...base,
+		background: "#f7f6f6",
+	}),
+}
 
 function CreateNewPost({ isEdit, data, postEdit, setPostEdit, postId }) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -221,6 +291,7 @@ function CreateNewPost({ isEdit, data, postEdit, setPostEdit, postId }) {
 					{!isEdit && (
 						<StyledSelect
 							options={tagOptions}
+							styles={customSelectStyle}
 							isMulti
 							name="tags"
 							className="basic-multi-select"

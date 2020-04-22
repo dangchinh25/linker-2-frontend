@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&display=swap");
 
 * {
 	box-sizing: border-box;
 	user-select: none;
+	background-color: #c6c4c4;
 }
 
 html {
-	font-family: "Roboto";
+	font-family: "Baloo Bhaina 2", cursive;
 	font-weight: 600;
 }
 

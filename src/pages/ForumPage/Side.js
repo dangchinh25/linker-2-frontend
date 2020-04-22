@@ -14,14 +14,17 @@ const SideBoxContainer = styled.div`
 	border-radius: 20px;
 	padding: 15px 15px;
 	color: #7e7980;
+	background: #f7f6f6;
 `
 
 const BoxTitle = styled.div`
 	display: flex;
 	margin-bottom: 8px;
+	background: #f7f6f6;
 
 	span {
 		font-size: 20px;
+		background: #f7f6f6;
 	}
 `
 
@@ -29,6 +32,7 @@ const BoxContent = styled.div`
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
+	background: #f7f6f6;
 `
 
 const StyledLink = styled.a`
@@ -43,9 +47,10 @@ const StyledLink = styled.a`
 	line-height: 1.1;
 	display: inline-block;
 	text-decoration: none;
+	background: #f7f6f6;
 
 	&:hover {
-		background-color: #ac3d54;
+		background-color: #f04c63;
 		color: #f4f7f6;
 	}
 `

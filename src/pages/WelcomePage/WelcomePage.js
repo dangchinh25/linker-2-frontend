@@ -10,7 +10,7 @@ const WelcomeContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: auto;
-	border: 1px solid black;
+	margin-top: 20px;
 `
 
 const WelcomeText = styled.div`
@@ -19,7 +19,16 @@ const WelcomeText = styled.div`
 	height: 100%;
 	justify-content: center;
 	align-items: center;
-	background-color: #f3f3f3;
+	background: #c6c4c4;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+
+	h1 {
+		background: #c6c4c4;
+		text-transform: uppercase;
+		font-size: 48px;
+		font-weight: 900;
+	}
 `
 
 function WelcomePage() {

@@ -51,6 +51,7 @@ const HeaderOption = styled.div`
 
 	svg {
 		font-size: 1.5rem;
+		color: #f7f6f6;
 	}
 
 	&:nth-child(6) {
@@ -64,38 +65,50 @@ const ProfileSelect = styled.div`
 	z-index: 999;
 	top: 55px;
 	right: -1px;
-	background-color: #f8f8f8;
+	background-color: none;
 
 	.select-option {
 		display: flex;
 		width: 100%;
 		justify-content: flex-start;
 		align-items: center;
-		border: 1px solid black;
+		border: 1px solid #c6c4c4;
 		border-bottom: none;
 		border-top: none;
 		padding: 5px 10px;
+		background: #f7f6f6;
 
 		svg {
 			margin-right: 10px;
+			background: none;
+			color: #c6c4c4;
+		}
+
+		span {
+			background-color: #f7f6f6;
+			background: none;
 		}
 
 		&:hover {
-			background-color: #ac3d54;
-			color: #f4f7f6;
+			background-color: #c6c4c4;
+			color: #f7f6f6;
+
+			svg {
+				color: #f7f6f6;
+			}
 		}
 	}
 
 	.select-option:nth-child(1) {
 		padding-top: 10px;
-		border-top: 1px solid black;
+		border-top: 1px solid #c6c4c4;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
 	}
 
 	.select-option:nth-child(3) {
-		border-top: 1px solid black;
-		border-bottom: 1px solid black;
+		border-top: 1px solid #c6c4c4;
+		border-bottom: 1px solid #c6c4c4;
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 		padding-top: 10px;
