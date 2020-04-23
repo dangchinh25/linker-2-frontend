@@ -29,8 +29,8 @@ const LogoContainer = styled.div`
 	left: 0;
 `
 const HeaderOption = styled.div`
-	width: 80px;
-	height: 50px;
+	width: 100%;
+	height: 100%;
 	margin: 10px 10px;
 	display: flex;
 	flex-direction: column;
@@ -149,47 +149,50 @@ function HeaderNav() {
 				</HeaderOption>
 			</StyledNavLink>
 
-			<StyledNavLink to="/">
+			<StyledNavLink to="/message">
 				<HeaderOption>
 					<FontAwesomeIcon icon={faEnvelope} />
 					Messages
 				</HeaderOption>
 			</StyledNavLink>
 
-			<StyledNavLink to="/">
+			<StyledNavLink to="/notification">
 				<HeaderOption>
 					<FontAwesomeIcon icon={faBell} />
 					Notification
 				</HeaderOption>
 			</StyledNavLink>
-			<HeaderOption
-				onClick={() => setIsProfileOpen(!isProfileOpen)}
-				row
-			>
-				<FontAwesomeIcon icon={faUserCircle} />
-				<div className="my-profile-select">
-					<span>My profile</span>
-					<FontAwesomeIcon icon={faSortDown} />
-				</div>
-				{isProfileOpen && (
-					<ProfileSelect>
-						<div className="select-option">
-							<FontAwesomeIcon icon={faAddressCard} />
-							<span>My Profile</span>
-						</div>
-						<div className="select-option">
-							<FontAwesomeIcon icon={faCog} />
-							<span>Setting</span>
-						</div>
-						<div
-							className="select-option"
-							onClick={auth.logout}
-						>
-							<span>Sign Out</span>
-						</div>
-					</ProfileSelect>
-				)}
-			</HeaderOption>
+
+			<StyledNavLink to="/user">
+				<HeaderOption
+					onClick={() => setIsProfileOpen(!isProfileOpen)}
+					row
+				>
+					<FontAwesomeIcon icon={faUserCircle} />
+					<div className="my-profile-select">
+						<span>My profile</span>
+						<FontAwesomeIcon icon={faSortDown} />
+					</div>
+					{isProfileOpen && (
+						<ProfileSelect>
+							<div className="select-option">
+								<FontAwesomeIcon icon={faAddressCard} />
+								<span>My Profile</span>
+							</div>
+							<div className="select-option">
+								<FontAwesomeIcon icon={faCog} />
+								<span>Setting</span>
+							</div>
+							<div
+								className="select-option"
+								onClick={auth.logout}
+							>
+								<span>Sign Out</span>
+							</div>
+						</ProfileSelect>
+					)}
+				</HeaderOption>
+			</StyledNavLink>
 		</HeaderContainer>
 	)
 }

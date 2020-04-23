@@ -12,6 +12,9 @@ import WelcomePage from "./pages/WelcomePage/WelcomePage"
 import ForumPage from "./pages/ForumPage/ForumPage"
 import DiscoverPage from "./pages/DiscoverPage/DiscoverPage"
 import UserPage from "./pages/UserPage/UserPage"
+import MyProfilePage from "./pages/MyProfilePage/MyProfilePage"
+import MessagePage from "./pages/MessagePage/MessagePage"
+import NotificationPage from "./pages/NotificationPage/NotificationPage"
 
 function App() {
 	const { token, login, logout, userId } = useAuth()
@@ -23,6 +26,9 @@ function App() {
 			<Switch>
 				<Route path="/forum" component={ForumPage} />
 				<Route path="/discover" component={DiscoverPage} />
+				<Route exact path="/user/" component={MyProfilePage} />
+				<Route path="/message" component={MessagePage} />
+				<Route path="/notification" component={NotificationPage} />
 				<Route path="/user/:uid" component={UserPage} />
 				<Redirect to="/forum" />
 			</Switch>

@@ -39,7 +39,7 @@ const StyledInfoRow = styled.div`
 
 	a {
 		text-decoration: none;
-		color: #c6c4c4;
+		color: ${(props) => props.name && "black"};
 
 		&:hover {
 			color: #f04c63;

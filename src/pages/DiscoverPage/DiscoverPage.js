@@ -25,6 +25,7 @@ const PeopleListContainer = styled.div`
 
 function DiscoverPage() {
 	const [peopleList, setPeopleList] = useState([])
+	const thisUserId = JSON.parse(localStorage.getItem("userData")).userId
 
 	useEffect(() => {
 		const getPeople = async () => {
@@ -45,15 +46,18 @@ function DiscoverPage() {
 			<HeaderNav />
 			<DiscoverContainer>
 				<PeopleListContainer>
-					{peopleList.reverse().map((people) => (
-						<People
-							key={people._id}
-							id={people._id}
-							name={people.name}
-							age={people.age}
-							gender={people.gender}
-						/>
-					))}
+					{peopleList
+						.filter((person) => person._id !== thisUserId)
+						.reverse()
+						.map((people) => (
+							<People
+								key={people._id}
+								id={people._id}
+								name={people.name}
+								age={people.age}
+								gender={people.gender}
+							/>
+						))}
 				</PeopleListContainer>
 			</DiscoverContainer>
 		</React.Fragment>
